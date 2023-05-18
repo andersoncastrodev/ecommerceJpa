@@ -16,6 +16,7 @@ public class EstadosECicloDeVidaTest extends EntityManagerTest {
         Categoria categoriaGerenciada = entityManager.find(Categoria.class, 1);
 
         entityManager.remove(categoriaGerenciada);
+
         entityManager.persist(categoriaGerenciada);
 
         entityManager.detach(categoriaGerenciada);
