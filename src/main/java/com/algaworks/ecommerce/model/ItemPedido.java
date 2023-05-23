@@ -14,15 +14,15 @@ import java.math.BigDecimal;
 @Table(name = "item_pedido")
 public class ItemPedido {
 
-    @EqualsAndHashCode.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @EmbeddedId
+    private ItemPedidoId id;
 
+    @MapsId("pedidoId")
     @ManyToOne(optional = false)
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
+    @MapsId("produtoId")
     @ManyToOne(optional = false)
     @JoinColumn(name = "produto_id")
     private Produto produto;

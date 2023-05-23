@@ -17,9 +17,10 @@ public class NotaFiscal {
 
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pedido_id")
     private Integer id;
 
+    @MapsId
     @OneToOne(optional = false)
     @JoinColumn(name = "pedido_id")
 //    @JoinTable(name = "pedido_nota_fiscal",
@@ -27,7 +28,8 @@ public class NotaFiscal {
 //            inverseJoinColumns = @JoinColumn(name = "pedido_id", unique = true))
     private Pedido pedido;
 
-    private String xml;
+    @Lob
+    private byte[] xml;
 
     @Column(name = "data_emissao")
     private Date dataEmissao;

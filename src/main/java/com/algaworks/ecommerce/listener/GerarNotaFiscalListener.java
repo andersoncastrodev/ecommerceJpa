@@ -12,11 +12,8 @@ public class GerarNotaFiscalListener {
 
     @PrePersist
     @PreUpdate
-    public void gerar(Pedido pedido){
-
-        if(pedido.isPago() && pedido.getNotaFiscal() == null){
-
-            //Enviando o objeto pedido
+    public void gerar(Pedido pedido) {
+        if (pedido.isPago() && pedido.getNotaFiscal() == null) {
             notaFiscalService.gerar(pedido);
         }
     }
